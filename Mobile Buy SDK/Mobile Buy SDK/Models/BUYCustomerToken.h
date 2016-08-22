@@ -33,7 +33,7 @@
 @property (nonatomic, copy, readonly) NSNumber *customerID;
 @property (nonatomic, copy, readonly) NSDictionary *JSONDictionary;
 
-- (instancetype)init NS_UNAVAILABLE;
+//- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithCustomerID:(NSNumber *)customerID accessToken:(NSString *)accessToken expiry:(NSDate *)expiry;
 + (BUYCustomerToken *)customerTokenWithJSONDictionary:(NSDictionary *)json;
 

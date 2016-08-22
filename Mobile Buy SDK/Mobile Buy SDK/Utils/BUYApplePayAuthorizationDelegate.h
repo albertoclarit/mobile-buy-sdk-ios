@@ -44,8 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return helper object
  */
-- (instancetype)initWithClient:(BUYClient *)client checkout:(BUYCheckout *)checkout shopName:(NSString *)shopName NS_DESIGNATED_INITIALIZER;
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithClient:(BUYClient *)client checkout:(BUYCheckout *)checkout shopName:(NSString *)shopName; //NS_DESIGNATED_INITIALIZER;
+//- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  The current checkout

@@ -33,7 +33,7 @@
 @property (nonatomic, readonly) NSSet *changedProperties;
 @property (nonatomic, readonly) BOOL hasChanges;
 
-- (instancetype)init NS_UNAVAILABLE;
+//- (instancetype)init NS_UNAVAILABLE;
 - (void)markPropertyChanged:(NSString *)property;
 - (void)reset;
 - (void)cancel;

@@ -40,7 +40,7 @@
 @interface BUYClient : NSObject
 NS_ASSUME_NONNULL_BEGIN
 
-- (instancetype)init NS_UNAVAILABLE;
+//- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Initialize a BUYDataClient using a shop's domain, API key and the Channel ID.
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An instance of BUYDataClient
  */
-- (instancetype)initWithShopDomain:(NSString *)shopDomain apiKey:(NSString *)apiKey appId:(NSString *)appId NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithShopDomain:(NSString *)shopDomain apiKey:(NSString *)apiKey appId:(NSString *)appId ;//NS_DESIGNATED_INITIALIZER;
 
 /**
  *

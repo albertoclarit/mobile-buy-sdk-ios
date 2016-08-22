@@ -43,10 +43,12 @@ static NSString * const BUYClientJSONMimeType = @"application/json";
 
 #pragma mark - Init
 
+/*
 - (instancetype)init {
 	BUYAssert(NO, @"BUYClient must be initialized using the designated initializer.");
 	return nil;
 }
+ */
 
 - (instancetype)initWithShopDomain:(NSString *)shopDomain apiKey:(NSString *)apiKey appId:(NSString *)appId
 {

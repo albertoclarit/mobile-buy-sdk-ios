@@ -43,8 +43,8 @@ extern NSString *const BUYApplePayPaymentProviderId;
  *
  *  @return an instance of `BUYApplePayPaymentProvider`
  */
-- (instancetype)initWithClient:(BUYClient *)client merchantID:(NSString *)merchantID NS_DESIGNATED_INITIALIZER;
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithClient:(BUYClient *)client merchantID:(NSString *)merchantID;// NS_DESIGNATED_INITIALIZER;
+//- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  The supported credit card payment networks.  Default values:
