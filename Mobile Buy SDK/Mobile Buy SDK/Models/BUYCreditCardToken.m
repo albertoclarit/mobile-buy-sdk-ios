@@ -33,7 +33,7 @@
 
 - (instancetype)initWithPaymentSessionID:(NSString *)paymentSessionID
 {
-	BUYAssert(paymentSessionID.length > 0, @"Failed to initialize BUYCreditCardToken. Invalid or nil payment session ID.");
+//	BUYAssert(paymentSessionID.length > 0, @"Failed to initialize BUYCreditCardToken. Invalid or nil payment session ID.");
 	
 	self = [super init];
 	if (self) {

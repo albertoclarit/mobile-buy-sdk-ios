@@ -71,7 +71,7 @@
 
 - (NSOperation *)updateAddress:(BUYAddress *)address callback:(BUYDataAddressBlock)block
 {
-	BUYAssert(address.identifier, @"Failed to update address. Address must have a valid identifier.");
+	//BUYAssert(address.identifier, @"Failed to update address. Address must have a valid identifier.");
 	
 	NSURL *route = [self urlForCustomersAddressWithAddressID:address.identifier];
 	return [self putRequestForURL:route object:@{ @"address" : address.JSONDictionary } completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {
@@ -85,7 +85,7 @@
 
 - (NSOperation *)deleteAddressWithID:(NSNumber *)addressID callback:(BUYDataStatusBlock)block
 {
-	BUYAssert(addressID, @"Failed to update address. Address must have a valid identifier.");
+	//BUYAssert(addressID, @"Failed to update address. Address must have a valid identifier.");
 	
 	NSURL *route = [self urlForCustomersAddressWithAddressID:addressID];
 	return [self deleteRequestForURL:route completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {

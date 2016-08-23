@@ -142,7 +142,7 @@ NSString * const BUYAccountPasswordKey             = @"password";
 {
 	self = [super init];
 	if (self) {
-		BUYAssert(value, @"Cannot initialize BUYAccountCredentialItem with nil value.");
+		//BUYAssert(value, @"Cannot initialize BUYAccountCredentialItem with nil value.");
 		
 		_key   = key;
 		_value = value;

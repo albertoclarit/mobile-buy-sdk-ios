@@ -52,9 +52,9 @@ typedef void (^AddressUpdateCompletion)(PKPaymentAuthorizationStatus, NSArray<PK
 
 - (instancetype)initWithClient:(BUYClient *)client checkout:(BUYCheckout *)checkout shopName:(NSString *)shopName
 {
-	BUYAssert(client, @"Failed to initialize BUYApplePayAuthorizationDelegate. Client must not be nil.");
-	BUYAssert(checkout, @"Failed to initialize BUYApplePayAuthorizationDelegate. Checkout must not be nil.");
-	BUYAssert(shopName, @"Failed to initialize BUYApplePayAuthorizationDelegate. Shop name must not be nil.");
+	//BUYAssert(client, @"Failed to initialize BUYApplePayAuthorizationDelegate. Client must not be nil.");
+	//BUYAssert(checkout, @"Failed to initialize BUYApplePayAuthorizationDelegate. Checkout must not be nil.");
+	//BUYAssert(shopName, @"Failed to initialize BUYApplePayAuthorizationDelegate. Shop name must not be nil.");
 	
 	self = [super init];
 	

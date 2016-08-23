@@ -77,7 +77,7 @@ static NSString * const BUYCollectionsKey = @"collection_listings";
 
 - (NSOperation *)getProductByHandle:(NSString *)handle completion:(BUYDataProductBlock)block
 {
-	BUYAssert(handle, @"Failed to get product by handle. Product handle must not be nil.");
+	//BUYAssert(handle, @"Failed to get product by handle. Product handle must not be nil.");
 	
 	NSURL *url = [self urlForProductListingsWithParameters:@{ @"handle" : handle }];
 	return [self getRequestForURL:url completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {
@@ -96,7 +96,7 @@ static NSString * const BUYCollectionsKey = @"collection_listings";
 
 - (NSOperation *)getProductById:(NSNumber *)productId completion:(BUYDataProductBlock)block
 {
-	BUYAssert(productId, @"Failed to get product by ID. Product ID must not be nil.");
+	//BUYAssert(productId, @"Failed to get product by ID. Product ID must not be nil.");
 	
 	return [self getProductsByIds:@[productId] completion:^(NSArray *products, NSError *error) {
 		block(products.firstObject, error);
@@ -105,7 +105,7 @@ static NSString * const BUYCollectionsKey = @"collection_listings";
 
 - (NSOperation *)getProductsByIds:(NSArray *)productIds completion:(BUYDataProductsBlock)block
 {
-	BUYAssert(productIds, @"Failed to get product by IDs. Product IDs array must not be nil.");
+	//BUYAssert(productIds, @"Failed to get product by IDs. Product IDs array must not be nil.");
 	
 	NSURL *url  = [self urlForProductListingsWithParameters:@{
 															  @"product_ids" : [productIds componentsJoinedByString:@","],

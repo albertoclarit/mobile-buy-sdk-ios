@@ -128,7 +128,7 @@
 
 - (NSDictionary *)buy_JSONForObject:(NSObject<BUYObject> *)object
 {
-	BUYAssert([self isEqual:[object entity]], @"%@ entity cannot decode %@ objects", self.name, [object entity].name);
+	//BUYAssert([self isEqual:[object entity]], @"%@ entity cannot decode %@ objects", self.name, [object entity].name);
 	
 	// The encoding map is a block which converts property names into JSON keys.
 	BUYStringMap encodingMap = self.JSONKeyEncodingMap;
@@ -159,7 +159,7 @@
 
 - (void)buy_updateObject:(NSObject<BUYObject> *)object withJSON:(NSDictionary *)JSON
 {
-	BUYAssert([self isEqual:[object entity]], @"%@ entity cannot decode %@ objects", self.name, [object entity].name);
+	//BUYAssert([self isEqual:[object entity]], @"%@ entity cannot decode %@ objects", self.name, [object entity].name);
 	
 	NSDictionary *properties = self.propertiesByName;
 	// The decoding map is a block which converts the key in the JSON into a property name.

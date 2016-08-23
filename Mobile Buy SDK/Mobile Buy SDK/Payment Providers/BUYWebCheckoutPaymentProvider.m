@@ -67,7 +67,7 @@ static NSString *const WebCheckoutCustomerAccessToken = @"customer_access_token"
 
 - (instancetype)initWithClient:(BUYClient *)client
 {
-	BUYAssert(client, @"Failed to initialize BUYWebCheckoutPaymentProvider, client must not be nil.");
+	//BUYAssert(client, @"Failed to initialize BUYWebCheckoutPaymentProvider, client must not be nil.");
 	
 	self = [super init];
 	if (self) {

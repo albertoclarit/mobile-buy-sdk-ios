@@ -40,8 +40,8 @@
 #import "BUYPaymentToken.h"
 #import "NSDecimalNumber+BUYAdditions.h"
 
-#define BUYAssertToken(checkoutToken) BUYAssert((checkoutToken), @"Checkout assertion failed. Checkout must have a valid token associated with it.")
-#define BUYAssertCheckout(checkout)   BUYAssert([(checkout) hasToken], @"Checkout assertion failed. Checkout must have a valid token associated with it.")
+//#define BUYAssertToken(checkoutToken) BUYAssert((checkoutToken), @"Checkout assertion failed. Checkout must have a valid token associated with it.")
+//#define BUYAssertCheckout(checkout)   BUYAssert([(checkout) hasToken], @"Checkout assertion failed. Checkout must have a valid token associated with it.")
 
 @implementation BUYClient (Checkout)
 
@@ -59,7 +59,7 @@
 
 - (NSOperation *)createCheckout:(BUYCheckout *)checkout completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssert(checkout, @"Failed to create checkout. Invalid checkout object.");
+//	BUYAssert(checkout, @"Failed to create checkout. Invalid checkout object.");
 	
 	// Inject channel and marketing attributions
 	[self configureCheckout:checkout];
@@ -70,7 +70,7 @@
 
 - (NSOperation *)createCheckoutWithCartToken:(NSString *)cartToken completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssert(cartToken, @"Failed to create checkout. Invalid cart token");
+	//BUYAssert(cartToken, @"Failed to create checkout. Invalid cart token");
 	BUYCheckout *checkout = [self.modelManager checkoutwithCartToken:cartToken];
 	[self configureCheckout:checkout];
 	
@@ -80,7 +80,7 @@
 
 - (NSOperation *)updateCheckout:(BUYCheckout *)checkout completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssertCheckout(checkout);
+	//BUYAssertCheckout(checkout);
 	
 	NSURL *route = [self urlForCheckoutsWithToken:checkout.token];
 	return [self patchRequestForURL:route object:checkout completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {
@@ -95,7 +95,7 @@
 
 - (NSOperation *)getCheckoutWithToken:(NSString *)checkoutToken start:(BOOL)start completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssertToken(checkoutToken);
+	//BUYAssertToken(checkoutToken);
 	
 	NSURL *url = [self urlForCheckoutsWithToken:checkoutToken];
 	return [self getRequestForURL:url start:start completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {
@@ -112,7 +112,7 @@
 
 - (NSOperation *)getCompletionStatusOfCheckoutWithToken:(NSString *)checkoutToken completion:(BUYDataStatusBlock)block
 {
-	BUYAssertToken(checkoutToken);
+	//BUYAssertToken(checkoutToken);
 	return [self getCompletionStatusOfCheckoutWithToken:checkoutToken start:YES completion:block];
 }
 
@@ -128,7 +128,7 @@
 		}
 	}
 	
-	BUYAssert(token, @"Failed to get completion status of checkout. Checkout URL must have a valid token associated with it.");
+	//BUYAssert(token, @"Failed to get completion status of checkout. Checkout URL must have a valid token associated with it.");
 	
 	return [self getCompletionStatusOfCheckoutWithToken:token start:YES completion:block];
 }
@@ -137,7 +137,7 @@
 
 - (NSOperation *)beginCheckoutWithToken:(NSString *)checkoutToken paymentToken:(id<BUYPaymentToken>)paymentToken completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssertToken(checkoutToken);
+	//BUYAssertToken(checkoutToken);
 	
 	NSURL *route = [self urlForCheckoutsCompletionWithToken:checkoutToken];
 	return [self postRequestForURL:route object:[paymentToken JSONDictionary] start:NO completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {
@@ -192,7 +192,7 @@
 
 - (NSOperation *)getShippingRatesForCheckoutWithToken:(NSString *)checkoutToken completion:(BUYDataShippingRatesBlock)block
 {
-	BUYAssertToken(checkoutToken);
+	//BUYAssertToken(checkoutToken);
 	
 	NSURL *url  = [self urlForCheckoutsShippingRatesWithToken:checkoutToken parameters:@{
 																						  @"checkout" : @"",
@@ -219,8 +219,8 @@
 
 - (NSOperation *)storeCreditCard:(BUYCreditCard *)creditCard checkout:(BUYCheckout *)checkout completion:(BUYDataCreditCardBlock)completion
 {
-	BUYAssertCheckout(checkout);
-	BUYAssert(creditCard, @"Failed to store credit card. No credit card provided.");
+	//BUYAssertCheckout(checkout);
+	//BUYAssert(creditCard, @"Failed to store credit card. No credit card provided.");
 	
 	NSMutableDictionary *json = [[NSMutableDictionary alloc] init];
 	json[@"token"]            = checkout.token;
@@ -240,8 +240,8 @@
 
 - (NSOperation *)applyGiftCardCode:(NSString *)giftCardCode toCheckout:(BUYCheckout *)checkout completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssertCheckout(checkout);
-	BUYAssert(giftCardCode.length > 0, @"Failed to apply gift card code. Invalid gift card code.");
+	//BUYAssertCheckout(checkout);
+	//BUYAssert(giftCardCode.length > 0, @"Failed to apply gift card code. Invalid gift card code.");
 	
 	BUYGiftCard *giftCard = [self.modelManager giftCardWithCode:giftCardCode];
 	NSURL *route = [self urlForCheckoutsUsingGiftCardWithToken:checkout.token];
@@ -267,8 +267,8 @@
 
 - (NSOperation *)removeGiftCard:(BUYGiftCard *)giftCard fromCheckout:(BUYCheckout *)checkout completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssertCheckout(checkout);
-	BUYAssert(giftCard.identifier, @"Failed to remove gift card. Gift card must have a valid identifier.");
+	//BUYAssertCheckout(checkout);
+	//BUYAssert(giftCard.identifier, @"Failed to remove gift card. Gift card must have a valid identifier.");
 	
 	NSURL *route = [self urlForCheckoutsUsingGiftCard:giftCard.identifier token:checkout.token];
 	return [self deleteRequestForURL:route completionHandler:^(NSDictionary *json, NSHTTPURLResponse *response, NSError *error) {
@@ -294,7 +294,7 @@
 
 - (NSOperation *)removeProductReservationsFromCheckoutWithToken:(NSString *)checkoutToken completion:(BUYDataCheckoutBlock)block
 {
-	BUYAssertToken(checkoutToken);
+//	BUYAssertToken(checkoutToken);
 	
 	BUYCheckout *checkout    = [[BUYCheckout alloc] initWithModelManager:self.modelManager JSONDictionary:@{}];
 	checkout.reservationTime = @0;

@@ -141,7 +141,7 @@ static NSSet *acronyms;
 
 - (NSString *)buy_reversedString
 {
-	BUYAssert([self canBeConvertedToEncoding:NSUTF8StringEncoding], @"Unable to reverse string; requires a string that can be encoded in UTF8");
+	//BUYAssert([self canBeConvertedToEncoding:NSUTF8StringEncoding], @"Unable to reverse string; requires a string that can be encoded in UTF8");
 
 	const char *str = [self UTF8String];
 	unsigned long len = strlen(str);
